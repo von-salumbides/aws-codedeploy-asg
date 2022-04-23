@@ -8,7 +8,7 @@ ASG:
   instance_type: "t2.micro"
   template_file_name: "ec2_user_data.tpl"
   desired_capacity: 
-  is_monitored: true
+  is_monitored: false
   is_ebs_optimized: false
   is_associate_public_ip_address: true
   ami_owner: "137112412989"
