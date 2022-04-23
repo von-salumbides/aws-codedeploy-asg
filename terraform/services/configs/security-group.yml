@@ -25,7 +25,14 @@ EC2:
     source_id: null
     source_id_bool: false
     description: "Allow inbound"
-    
+  - from_port: 22
+    to_port: 22
+    protocol: tcp
+    cidr_blocks: 0.0.0.0/0
+    cidr_blocks_bool: true
+    source_id: null
+    source_id_bool: false
+    description: "Allow inbound"
   - from_port: 443
     to_port: 443
     protocol: tcp
