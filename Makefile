@@ -22,3 +22,8 @@ destroy: init validate
 	terraform $(TF_DIR_CMD) destroy \
 	-auto-approve \
 	$(TF_ACCT_CMD)
+match:
+	terraform $(TF_DIR_CMD) apply \
+	-refresh-only \
+	-auto-approve \
+	$(TF_ACCT_CMD)
