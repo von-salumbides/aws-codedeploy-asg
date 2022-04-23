@@ -6,6 +6,6 @@ module "asg" {
   region                 = var.region
   project                = var.project
   subnet_list            = var.subnet_list
-  profile_arn            = module.asg-role.profile_arn
+  profile_arn            = module.asg-role.profile_id
   vpc_security_group_ids = module.security-group-ec2.id
 }
