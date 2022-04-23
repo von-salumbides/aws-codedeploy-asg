@@ -1,15 +1,16 @@
 ASG:
   name: "main"
-  template_file_name: "ec2_user_data.tpl"
-  ami_owner: "137112412989"
-  ami_filter_name: "amzn2-ami-hvm-2.0*-x86_64-ebs"
-  key_name: "DevOps_POC"
-  instance_type: "t2.micro"
-  health_check_type: "EC2"
-  desired_capacity: 
   max_size: 
   min_size: 
   volume_size: 20
-  is_associate_public_ip_address: true
+  key_name: "DevOps_POC"
+  health_check_type: "EC2"
+  instance_type: "t2.micro"
+  template_file_name: "ec2_user_data.tpl"
+  desired_capacity: 
   is_monitored: true
   is_ebs_optimized: false
+  is_associate_public_ip_address: true
+  ami_owner: "137112412989"
+  ami_filter_name: "amzn2-ami-hvm-2.0*-x86_64-ebs"
+
