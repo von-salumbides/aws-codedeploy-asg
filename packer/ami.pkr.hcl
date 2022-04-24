@@ -13,7 +13,7 @@ locals {
 }
 
 source "amazon-ebs" "linux" {
-  ami_name      = local.name
+  ami_name      = "${local.name}"
   instance_type = "t2.micro"
   region        = "us-east-2"
   source_ami_filter {
