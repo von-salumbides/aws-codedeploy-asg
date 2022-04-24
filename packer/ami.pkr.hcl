@@ -28,14 +28,14 @@ source "amazon-ebs" "linux" {
   ssh_username = "ec2-user"
   run_tags = {
     COST_CENTER  = "COMMON"
-    DATE_CREATED = "{{timestamp}}"
+    DATE_CREATED = "{{local.timestamp}}"
     OS_Version   = "AmazonLinux2"
     Source_AMI   = "{{ .SourceAMIName }}"
     Name         = "${local.name}"
   }
   tags = {
     COST_CENTER  = "COMMON"
-    DATE_CREATED = "{{timestamp}}"
+    DATE_CREATED = "{{local.timestamp}}"
     OS_Version   = "AmazonLinux2"
     Source_AMI   = "{{ .SourceAMIName }}"
     Name         = "${local.name}"
