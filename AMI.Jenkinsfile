@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Launch Template Update') {
       steps {
-        sh "printenv"
+        sh "make playbook"
       }
     }
   } 

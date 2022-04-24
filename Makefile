@@ -39,3 +39,9 @@ pkrbuild: pkrinit
 	packer build \
 	-var "ami_account_id=$(AWS_ACCOUNT_ID)" \
 	packer/
+
+#########################
+# 				Ansible				#
+#########################
+playbook:
+	ansible-playbook ansible/ami-update.yml -e ami_id=$(AMI_ID)
