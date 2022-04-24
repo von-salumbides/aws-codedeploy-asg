@@ -6,6 +6,7 @@
   tasks: 
   - name: 1.0 -- Update AMI in Launch Template
     shell: aws ec2 create-launch-template-version \
+            --region {{ aws_region }} \
             --launch-template-id {{ launch_template_id }} \
             --version-description "AMI Build by Packer" \
             --source-version {{ source_version }} \
