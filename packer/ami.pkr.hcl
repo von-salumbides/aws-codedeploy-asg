@@ -9,10 +9,11 @@ packer {
 
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
+  name      = "${var.ami_prefix}-ami-${var.ami_account_id}-${local.timestamp}"
 }
 
 source "amazon-ebs" "linux" {
-  ami_name      = "${var.ami_prefix}-ami-${var.ami_account_id}-${local.timestamp}"
+  ami_name      = local.name
   instance_type = "t2.micro"
   region        = "us-east-2"
   source_ami_filter {
@@ -29,13 +30,15 @@ source "amazon-ebs" "linux" {
     COST_CENTER  = "COMMON"
     DATE_CREATED = "{{timestamp}}"
     OS_Version   = "AmazonLinux2"
-    Name         = "{{ .SourceAMIName }}"
+    Source_AMI   = "{{ .SourceAMIName }}"
+    Name         = "${local.name}"
   }
   tags = {
     COST_CENTER  = "COMMON"
     DATE_CREATED = "{{timestamp}}"
     OS_Version   = "AmazonLinux2"
-    Name         = "{{ .SourceAMIName }}"
+    Source_AMI   = "{{ .SourceAMIName }}"
+    Name         = "${local.name}"
   }
 }
 
