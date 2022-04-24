@@ -27,3 +27,15 @@ match:
 	-refresh-only \
 	-auto-approve \
 	$(TF_ACCT_CMD)
+
+#########################
+# 				PACKER				#
+#########################
+pkrfmt:
+	packer fmt packer/
+pkrinit:
+	packer init packer/
+pkrbuild: pkrinit
+	packer build \
+	-var "ami_account_id=$(AWS_ACCOUNT_ID)" \
+	packer/

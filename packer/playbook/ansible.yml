@@ -1,0 +1,19 @@
+---
+- name: Install
+  hosts: localhost
+  become: true
+  connection: local
+  tasks: 
+  - name: 1.0 -- Ensure Dependencies are installed
+    yum: name={{ item }} state=present update_cache=yes
+    loop:
+      - nfs-utils
+      - git
+      - curl
+      - zip
+      - unzip
+      - httpd
+      - mlocate
+
+  - name: 1.1 - Enable Httpd
+    service: name=httpd enabled=yes state=started
