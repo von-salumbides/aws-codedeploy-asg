@@ -12,4 +12,4 @@
             --source-version {{ source_version }} \
             --launch-template-data '{"ImageId":"{{ ami_id }}"}'
     register: lt_result
-  - debug: msg="Deployed Launch Template {{ lt_result.stdout }}"
+  - debug: msg="Deployed Launch Template {{ lt_result.stdout | to_nice_json(indent=2) }}"
