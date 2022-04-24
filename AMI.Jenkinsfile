@@ -10,8 +10,8 @@ pipeline {
           gitToolName: 'git-tool')]) {
           sh "make ${PKR_CMD}"
         }
-        env.AMI_ID=sh(script: 'jq -r ".builds[-1].artifact_id" manifest.json | cut -d ":" -f2', returnStdout: true).trim()
         script {
+          env.AMI_ID=sh(script: 'jq -r ".builds[-1].artifact_id" manifest.json | cut -d ":" -f2', returnStdout: true).trim()
           currentBuild.displayName = "${PKR_CMD}"
         }
       }
