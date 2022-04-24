@@ -25,6 +25,12 @@ source "amazon-ebs" "linux" {
     owners      = ["amazon"]
   }
   ssh_username = "ec2-user"
+  tags = {
+    COST_CENTER  = "COMMON"
+    DATE_CREATED = "{{timestamp}}"
+    OS_Version   = "AmazonLinux2"
+    Name         = "{{ .SourceAMIName }}"
+  }
 }
 
 build {
@@ -42,7 +48,7 @@ build {
     playbook_dir  = "${path.root}"
   }
   post-processor "manifest" {
-    output = "manifest.json"
+    output     = "manifest.json"
     strip_path = true
   }
 }
