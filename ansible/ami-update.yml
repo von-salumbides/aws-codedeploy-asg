@@ -7,6 +7,8 @@
   - name: 1.0 -- Update AMI in Launch Template
     shell: aws ec2 create-launch-template-version \
             --launch-template-id {{ launch_template_id }} \
-            --version-description "Launch Template Created {{ ansible_date_time.iso8601 }}" \
+            --version-description "AMI Build by Packer" \
             --source-version {{ source_version }} \
             --launch-template-data '{"ImageId":"{{ ami_id }}"}'
+    register: lt_result
+  - debug: msg="Deployed Launch Template {{ lt_result.stdout }}"
