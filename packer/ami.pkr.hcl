@@ -29,14 +29,14 @@ source "amazon-ebs" "linux" {
   run_tags = {
     COST_CENTER  = "COMMON"
     DATE_CREATED = "{{local.timestamp}}"
-    OS_Version   = "AmazonLinux2"
+    OS_Type      = "AmazonLinux2"
     Source_AMI   = "{{ .SourceAMIName }}"
     Name         = "${local.name}"
   }
   tags = {
     COST_CENTER  = "COMMON"
     DATE_CREATED = "{{local.timestamp}}"
-    OS_Version   = "AmazonLinux2"
+    OS_Type      = "AmazonLinux2"
     Source_AMI   = "{{ .SourceAMIName }}"
     Name         = "${local.name}"
   }
