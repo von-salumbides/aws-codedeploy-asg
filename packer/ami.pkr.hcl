@@ -25,6 +25,12 @@ source "amazon-ebs" "linux" {
     owners      = ["amazon"]
   }
   ssh_username = "ec2-user"
+  run_tags = {
+    COST_CENTER  = "COMMON"
+    DATE_CREATED = "{{timestamp}}"
+    OS_Version   = "AmazonLinux2"
+    Name         = "{{ .SourceAMIName }}"
+  }
   tags = {
     COST_CENTER  = "COMMON"
     DATE_CREATED = "{{timestamp}}"
