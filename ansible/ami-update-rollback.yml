@@ -1,0 +1,10 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files:
+    - "./vars/variables.yml"
+  tasks: 
+  - name: 1.1 -- Update Auto Scaling Group
+    shell: aws autoscaling update-auto-scaling-group \
+            --auto-scaling-group-name {{ asg_name }} \
+            --launch-template LaunchTemplateName={{ launch_template_name }},Version={{ launch_template_version }}

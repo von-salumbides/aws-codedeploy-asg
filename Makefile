@@ -45,3 +45,5 @@ pkrbuild: pkrinit
 #########################
 playbook:
 	ansible-playbook ansible/ami-update.yml -e ami_id=$(AMI_ID)
+playbook-rollback:
+	ansible-playbook ansible/ami-update-rollback.yml -e launch_template_version=$(launch_template_version)

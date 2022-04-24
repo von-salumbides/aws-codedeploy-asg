@@ -12,4 +12,12 @@
             --source-version {{ source_version }} \
             --launch-template-data '{"ImageId":"{{ ami_id }}"}'
     register: lt_result
-  - debug: msg="Deployed Launch Template {{ lt_result.stdout | to_nice_json(indent=2) }}"
+  - set_fact:
+      lt_json: "{{ lt_result.stdout | from_json }}"
+  - debug: msg="{{ lt_json }}"
+
+  - name: 1.1 -- Update Auto Scaling Group
+    shell: aws autoscaling update-auto-scaling-group \
+            --region {{ aws_region }} \
+            --auto-scaling-group-name {{ asg_name }} \
+            --launch-template LaunchTemplateName={{ lt_json.LaunchTemplateVersion.LaunchTemplateName }},Version={{ lt_json.LaunchTemplateVersion.VersionNumber }}

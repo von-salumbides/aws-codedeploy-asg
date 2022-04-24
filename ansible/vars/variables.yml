@@ -1,3 +1,5 @@
 launch_template_id: "lt-0ed799946d792cbb7"
 aws_region: "us-east-2"
+asg_name: "devops-main-asg-poc"
+launch_template_name: ""
 source_version: 1
