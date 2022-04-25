@@ -1,0 +1,16 @@
+RULES:
+  client:
+    name: "client"
+    priority: 100
+    path_pattern:
+      - "/"
+    host_header:
+      - "example.com"
+      - "myweb.com"
+  api:
+    name: "api"
+    priority: 200
+    path_pattern:
+      - "/api/"
+    host_header:
+      - "api.com"
