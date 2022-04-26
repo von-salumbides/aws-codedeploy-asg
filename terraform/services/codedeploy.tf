@@ -8,7 +8,7 @@ resource "aws_codedeploy_deployment_group" "example" {
   app_name              = module.codedeploy-app.name
   deployment_group_name = "devops-poc"
   service_role_arn      = module.asg-role.arn
-  autoscaling_groups    = [module.asg-blue.name]
+  autoscaling_groups    = [module.asg.name]
   deployment_style {
     deployment_option = "WITH_TRAFFIC_CONTROL"
     deployment_type   = "BLUE_GREEN"
