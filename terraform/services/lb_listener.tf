@@ -7,4 +7,9 @@ module "listener" {
     api    = module.target-group-api.arn
     client = module.target-group-client.arn
   }
+  depends_on = [
+    module.lb,
+    module.target-group-api,
+    module.target-group-client
+  ]
 }
