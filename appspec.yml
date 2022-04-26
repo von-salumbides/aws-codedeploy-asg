@@ -20,3 +20,4 @@ hooks:
     - location: scripts/application-start.sh
       timeout: 120
       runas: root
+file_exists_behavior: OVERWRITE
