@@ -3,6 +3,7 @@ ASG:
   max_size: 
   min_size: 
   volume_size: 20
+  device_name: "/dev/xvda"
   key_name: "DevOps_POC"
   health_check_type: "EC2"
   instance_type: "t2.micro"
