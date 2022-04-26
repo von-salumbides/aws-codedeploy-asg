@@ -30,7 +30,7 @@ pipeline {
               description: "Deployment Version ${VERSION_TAG}",
               waitForCompletion: 'true',
               ignoreApplicationStopFailures: 'false',
-              fileExistsBehavior: 'DISALLOW'
+              fileExistsBehavior: 'OVERWRITE'
             )
             echo "${DEPLOY_ID}"
           }

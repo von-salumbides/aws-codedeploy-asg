@@ -4,12 +4,12 @@ module "listener" {
   config            = "RULES"
   load_balancer_arn = module.lb.arn
   target-group = {
-    api    = module.target-group-api.arn
-    client = module.target-group-client.arn
+    blue  = module.target-group-blue.arn
+    green = module.target-group-green.arn
   }
   depends_on = [
     module.lb,
-    module.target-group-api,
-    module.target-group-client
+    module.target-group-blue,
+    module.target-group-green
   ]
 }

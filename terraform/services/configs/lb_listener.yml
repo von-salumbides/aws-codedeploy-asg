@@ -1,16 +1,15 @@
 RULES:
-  client:
+  blue:
     name: "client"
     priority: 100
     path_pattern:
       - "/"
     host_header:
-      - "example.com"
-      - "myweb.com"
-  api:
+      - "blue.example.com"
+  green:
     name: "api"
     priority: 200
     path_pattern:
-      - "/api/"
+      - "/"
     host_header:
-      - "api.com"
+      - "example.com"
